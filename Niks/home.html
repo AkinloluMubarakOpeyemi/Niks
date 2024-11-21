@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Order Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Available Foods</h1>
+        <div class="food-menu">
+            <!-- Food items -->
+            <div class="food-item">
+                <h2>Pizza</h2>
+                <p>Delicious cheesy pizza with your choice of toppings.</p>
+                <p><strong>Price:</strong> $10</p>
+                <button class="add-to-order" data-food="Pizza" data-price="10">Add to Order</button>
+            </div>
+
+            <div class="food-item">
+                <h2>Burger</h2>
+                <p>Juicy beef burger served with fries and a drink.</p>
+                <p><strong>Price:</strong> $8</p>
+                <button class="add-to-order" data-food="Burger" data-price="8">Add to Order</button>
+            </div>
+
+            <div class="food-item">
+                <h2>Pasta</h2>
+                <p>Rich and creamy Alfredo pasta with chicken.</p>
+                <p><strong>Price:</strong> $12</p>
+                <button class="add-to-order" data-food="Pasta" data-price="12">Add to Order</button>
+            </div>
+
+            <div class="food-item">
+                <h2>Salad</h2>
+                <p>Fresh and healthy garden salad with a choice of dressing.</p>
+                <p><strong>Price:</strong> $6</p>
+                <button class="add-to-order" data-food="Salad" data-price="6">Add to Order</button>
+            </div>
+        </div>
+
+        <h1>Your Order</h1>
+        <div class="order-list">
+            <ul id="orderItems"></ul>
+            <p><strong>Total:</strong> $<span id="totalPrice">0</span></p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

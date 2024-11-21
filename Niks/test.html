@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+</head>
+
+<body>
+    <h2>Sign Up</h2>
+    <form id="signUpForm">
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" required><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" required><br>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" required><br>
+
+        <button type="submit">Sign Up</button>
+    </form>
+
+    <script>
+        document.getElementById('signUpForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value.trim();
+
+            if (!name || !email || !password) {
+                alert('Please fill out all fields!');
+                return;
+            }
+
+            // Retrieve existing users from local storage
+            const users = JSON.parse(localStorage.getItem('users')) || [];
+
+            // Check if email already exists
+            if (users.some(user => user.email === email)) {
+                alert('Email is already registered!');
+                return;
+            }
+
+            // Add new user
+            users.push({ name, email, password });
+            localStorage.setItem('users', JSON.stringify(users));
+            alert('Sign-up successful! You can now log in.');
+
+            // Notify via console (replace this with an API call or email notification)
+            console.log(`New user signed up: ${name}, ${email}`);
+
+            // Redirect to login page
+            window.location.href = "login.html";
+        });
+    </script>
+</body>
+
+</html>
